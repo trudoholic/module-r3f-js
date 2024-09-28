@@ -40,12 +40,15 @@ export const Interface = () => {
         paddingX={8}
         rounded="2xl"
       >
+        <Text fontSize={"2xl"} fontWeight={"bold"}>
+          Размеры
+        </Text>
         <Checkbox
           defaultChecked
           value={showDim}
           onChange={toggleDim}
         >
-          Размеры
+          Показывать
         </Checkbox>
       </Box>
 
