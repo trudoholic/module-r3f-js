@@ -1,4 +1,5 @@
 import Carcass from "./Carcass.jsx"
+import CarcassDim from "./CarcassDim.jsx"
 import Dividers from "./Dividers.jsx"
 
 const
@@ -21,12 +22,18 @@ export function ModuleV1() {// props
         thickness={16}
       />
 
+      <CarcassDim
+        width={1100}
+        height={680}
+        depth={450}
+      />
+
       <Dividers
         width={1100}
         height={680}
         depth={450}
         thickness={16}
-        split={4}
+        split={3}
       />
 
     </group>

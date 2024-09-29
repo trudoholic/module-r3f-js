@@ -1,5 +1,6 @@
 import {memo, useMemo} from "react"
 import {ProfileBox} from "./ProfileBox.jsx"
+import {DividerDim} from "./CarcassDim.jsx"
 
 const Dividers = ({width, height, depth, thickness, split}) => {
   const
@@ -11,14 +12,14 @@ const Dividers = ({width, height, depth, thickness, split}) => {
   const dividers = useMemo(() => {
     const n = split - 1
     const partitionWidth = Math.floor((width - thickness * (n + 2)) / split)
-    const remainingWidth = width - partitionWidth * n
+    // const remainingWidth = width - (partitionWidth + thickness) * n
+    const remainingWidth = width - partitionWidth * n - thickness * (n + 2)
     const list = [...Array(n).keys()].map((i) => ({
       id: `Divider${i}`,
       x: (partitionWidth + thickness) * (i + 1),
     }))
     return { list, partitionWidth, remainingWidth }
   }, [width, split])
-  // console.log(dividers)
 
   return (
     <>
@@ -32,6 +33,23 @@ const Dividers = ({width, height, depth, thickness, split}) => {
           />
         ))
       }
+      {
+        dividers.list.map(divider => (
+          <DividerDim
+            key={divider.id}
+            value={dividers.partitionWidth}
+            // value={dividers.partitionWidth + thickness}
+            x={divider.x}
+            // x={divider.x}
+          />
+        ))
+      }
+
+      <DividerDim
+        value={dividers.remainingWidth}
+        x={width - thickness}
+      />
+
     </>
   )
 }
