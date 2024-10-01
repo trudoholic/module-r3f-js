@@ -11,6 +11,8 @@ export const ConfiguratorProvider = ({ children }) => {
   const [width, setWidth] = useState(1100);
   const [moduleColor, setModuleColor] = useState("gray");
 
+  const depth = 450, height = 680, thickness = 16;
+
   return (
     <ConfiguratorContext.Provider
       value={{
@@ -19,6 +21,9 @@ export const ConfiguratorProvider = ({ children }) => {
         split,
         setSplit,
         width,
+        height,
+        depth,
+        thickness,
         setWidth,
         moduleColor,
         setModuleColor,

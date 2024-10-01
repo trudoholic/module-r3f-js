@@ -1,10 +1,19 @@
 import {memo, useMemo} from "react"
 import {ProfileBox} from "./ProfileBox.jsx"
 import {DividerDim} from "./CarcassDim.jsx"
+import {useConfigurator} from "../hooks/useConfigurator.jsx"
 
-const Dividers = ({width, height, depth, thickness, split}) => {
+const Dividers = () => {
+  const {
+    width,
+    height,
+    depth,
+    thickness,
+    // moduleColor,
+    split,
+    showDim,
+  } = useConfigurator()
   const
-    // moduleWidth = width / 1000,
     moduleHeight = height / 1000,
     moduleDepth = depth / 1000,
     panelThickness = thickness / 1000
@@ -34,7 +43,7 @@ const Dividers = ({width, height, depth, thickness, split}) => {
         ))
       }
       {
-        dividers.list.map(divider => (
+        showDim && dividers.list.map(divider => (
           <DividerDim
             key={divider.id}
             value={dividers.partitionWidth}
@@ -44,12 +53,12 @@ const Dividers = ({width, height, depth, thickness, split}) => {
           />
         ))
       }
-
-      <DividerDim
-        value={dividers.remainingWidth}
-        x={width - thickness}
-      />
-
+      {
+        showDim && <DividerDim
+          value={dividers.remainingWidth}
+          x={width - thickness}
+        />
+      }
     </>
   )
 }

@@ -1,6 +1,7 @@
 import {memo} from "react"
 import {DimensionLine} from "./DimensionLine.jsx"
 import {DimensionText} from "./DimensionText.jsx"
+import {useConfigurator} from "../hooks/useConfigurator.jsx"
 
 const lineGap = .05
 const textGap = .1
@@ -22,7 +23,12 @@ export const DividerDim = ({value, x}) => {
   )
 }
 
-const CarcassDim = ({width, height, depth}) => {
+const CarcassDim = () => {
+  const {
+    width,
+    height,
+    depth,
+  } = useConfigurator()
   const
     moduleWidth = width / 1000,
     moduleHeight = height / 1000,

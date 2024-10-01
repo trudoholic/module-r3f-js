@@ -1,5 +1,9 @@
+import {useConfigurator} from "../hooks/useConfigurator.jsx"
+import { Edges } from "@react-three/drei"
+
 export function HorizontalBox(props) {
   const { name, size, position } = props
+  const { moduleColor } = useConfigurator()
 
   return (
     <mesh
@@ -8,7 +12,8 @@ export function HorizontalBox(props) {
       rotation-x={Math.PI / 2}
     >
       <boxGeometry args={[size.x, size.y, size.z]} />
-      <meshStandardMaterial color={"maroon"} />
+      <meshStandardMaterial color={moduleColor} />
+      <Edges color="white" />
     </mesh>
   )
 }

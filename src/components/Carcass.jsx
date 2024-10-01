@@ -2,8 +2,15 @@ import {memo} from "react"
 import {FrontalBox} from "./FrontalBox.jsx"
 import {HorizontalBox} from "./HorizontalBox.jsx"
 import {ProfileBox} from "./ProfileBox.jsx"
+import {useConfigurator} from "../hooks/useConfigurator.jsx"
 
-const Carcass = ({width, height, depth, thickness}) => {
+const Carcass = () => {
+  const {
+    width,
+    height,
+    depth,
+    thickness,
+  } = useConfigurator()
   const
     moduleWidth = width / 1000,
     moduleHeight = height / 1000,

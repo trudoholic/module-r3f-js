@@ -1,5 +1,9 @@
+import {useConfigurator} from "../hooks/useConfigurator.jsx"
+import { Edges } from "@react-three/drei"
+
 export function ProfileBox(props) {
   const { name, size, position } = props
+  const { moduleColor } = useConfigurator()
 
   return (
     <mesh
@@ -8,7 +12,8 @@ export function ProfileBox(props) {
       rotation-y ={Math.PI / 2}
     >
       <boxGeometry args={[size.x, size.y, size.z]} />
-      <meshStandardMaterial color={"gray"} />
+      <meshStandardMaterial color={moduleColor} />
+      <Edges color="white" />
     </mesh>
   )
 }
