@@ -19,7 +19,13 @@ export const Interface = () => {
     split,
     setSplit,
     width,
+    height,
+    depth,
+    thickness,
     setWidth,
+    setHeight,
+    setDepth,
+    setThickness,
     moduleColor,
     setModuleColor
   } = useConfigurator();
@@ -59,8 +65,9 @@ export const Interface = () => {
         rounded="2xl"
       >
         <Text fontSize={"2xl"} fontWeight={"bold"}>
-          Ширина модуля
+          Размеры модуля
         </Text>
+
         <Slider
           value={width}
           onChange={setWidth}
@@ -73,6 +80,46 @@ export const Interface = () => {
           </SliderTrack>
           <SliderThumb />
         </Slider>
+
+        <Slider
+          value={height}
+          onChange={setHeight}
+          min={300}
+          max={1500}
+          step={1}
+        >
+          <SliderTrack>
+            <SliderFilledTrack />
+          </SliderTrack>
+          <SliderThumb />
+        </Slider>
+
+        <Slider
+          value={depth}
+          onChange={setDepth}
+          min={300}
+          max={1500}
+          step={1}
+        >
+          <SliderTrack>
+            <SliderFilledTrack />
+          </SliderTrack>
+          <SliderThumb />
+        </Slider>
+
+        <Slider
+          value={thickness}
+          onChange={setThickness}
+          min={10}
+          max={50}
+          step={1}
+        >
+          <SliderTrack>
+            <SliderFilledTrack />
+          </SliderTrack>
+          <SliderThumb />
+        </Slider>
+
       </Box>
 
       <Box
