@@ -7,7 +7,8 @@ export const ConfiguratorProvider = ({ children }) => {
   const toggleDim = () => { setShowDim(show => !show) }
 
   const [split, setSplit] = useState(3);
-  const [moduleWidth, setModuleWidth] = useState(1.1);
+  // const [moduleWidth, setModuleWidth] = useState(1.1);
+  const [width, setWidth] = useState(1100);
   const [moduleColor, setModuleColor] = useState("gray");
 
   return (
@@ -17,8 +18,8 @@ export const ConfiguratorProvider = ({ children }) => {
         toggleDim,
         split,
         setSplit,
-        moduleWidth,
-        setModuleWidth,
+        width,
+        setWidth,
         moduleColor,
         setModuleColor,
       }}

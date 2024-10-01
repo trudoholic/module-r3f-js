@@ -18,8 +18,8 @@ export const Interface = () => {
     toggleDim,
     split,
     setSplit,
-    moduleWidth,
-    setModuleWidth,
+    width,
+    setWidth,
     moduleColor,
     setModuleColor
   } = useConfigurator();
@@ -62,11 +62,11 @@ export const Interface = () => {
           Ширина модуля
         </Text>
         <Slider
-          value={moduleWidth}
-          onChange={setModuleWidth}
-          min={0.3}
-          max={5}
-          step={0.001}
+          value={width}
+          onChange={setWidth}
+          min={300}
+          max={5000}
+          step={1}
         >
           <SliderTrack>
             <SliderFilledTrack />

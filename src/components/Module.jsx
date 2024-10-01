@@ -25,14 +25,17 @@ function DimensionText(props) {
 }
 
 export function Module(props) {
-  const moduleDepth = .45;
-  const moduleHeight = .68;
-  const panelThickness = .016;
+  // const moduleDepth = .45, moduleHeight = .68, panelThickness = .016;
+  const depth = 450, height = 680, thickness = 16;
+  const { width, moduleColor, split, showDim } = useConfigurator();
+  const
+    moduleWidth = width / 1000,
+    moduleHeight = height / 1000,
+    moduleDepth = depth / 1000,
+    panelThickness = thickness / 1000
 
-  const textGap = .1;
-  const lineGap = .05;
+  const textGap = .1, lineGap = .05;
 
-  const { moduleWidth, moduleColor, split, showDim } = useConfigurator();
   const partitionWidth = Math.floor(1000 * moduleWidth / split) / 1000;
   const remainingWidth = Math.floor(1000 * (moduleWidth - partitionWidth * (split - 1))) / 1000;
 
