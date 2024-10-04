@@ -7,20 +7,20 @@ import { useConfigurator } from "../hooks/useConfigurator"
 
 export function ModuleV1() {
   const {
-    width,
-    height,
-    depth,
+    debouncedWidth,
+    debouncedHeight,
+    debouncedDepth,
     showDim,
   } = useConfigurator()
   const
-    moduleWidth = width / 1000,
-    moduleHeight = height / 1000,
-    moduleDepth = depth / 1000
+    moduleWidth = debouncedWidth / 1000,
+    moduleHeight = debouncedHeight / 1000,
+    moduleDepth = debouncedDepth / 1000
 
   const bounds = useBounds()
   useEffect(() => {
     bounds.refresh().clip().fit()
-  }, [width, height, depth])
+  }, [debouncedWidth, debouncedHeight, debouncedDepth])
 
 
 

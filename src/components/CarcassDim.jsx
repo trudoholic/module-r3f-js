@@ -26,13 +26,16 @@ export const DividerDim = ({value, x}) => {
 const CarcassDim = () => {
   const {
     width,
+    debouncedWidth,
     height,
+    debouncedHeight,
     depth,
+    debouncedDepth,
   } = useConfigurator()
   const
-    moduleWidth = width / 1000,
-    moduleHeight = height / 1000,
-    moduleDepth = depth / 1000
+    moduleWidth = debouncedWidth / 1000,
+    moduleHeight = debouncedHeight / 1000,
+    moduleDepth = debouncedDepth / 1000
 
   return (
     <>

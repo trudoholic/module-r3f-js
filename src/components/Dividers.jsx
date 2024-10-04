@@ -5,18 +5,23 @@ import {useConfigurator} from "../hooks/useConfigurator.jsx"
 
 const Dividers = () => {
   const {
-    width,
-    height,
-    depth,
+    // width,
+    debouncedWidth,
+    // height,
+    debouncedHeight,
+    // depth,
+    debouncedDepth,
     thickness,
+    debouncedThickness,
     // moduleColor,
     split,
     showDim,
   } = useConfigurator()
   const
-    moduleHeight = height / 1000,
-    moduleDepth = depth / 1000,
-    panelThickness = thickness / 1000
+    width = debouncedWidth,
+    moduleHeight = debouncedHeight / 1000,
+    moduleDepth = debouncedDepth / 1000,
+    panelThickness = debouncedThickness / 1000
 
   const dividers = useMemo(() => {
     const n = split - 1

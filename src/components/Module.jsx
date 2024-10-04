@@ -1,6 +1,6 @@
 import * as THREE from 'three'
-import {Line, Text} from "@react-three/drei";
-import { useConfigurator } from "../hooks/useConfigurator";
+import {Line, Text} from "@react-three/drei"
+import { useConfigurator } from "../hooks/useConfigurator"
 
 function DimensionLine(props) {
   const slash = .01;

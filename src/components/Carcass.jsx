@@ -6,16 +6,16 @@ import {useConfigurator} from "../hooks/useConfigurator.jsx"
 
 const Carcass = () => {
   const {
-    width,
-    height,
-    depth,
-    thickness,
+    debouncedWidth,
+    debouncedHeight,
+    debouncedDepth,
+    debouncedThickness,
   } = useConfigurator()
   const
-    moduleWidth = width / 1000,
-    moduleHeight = height / 1000,
-    moduleDepth = depth / 1000,
-    panelThickness = thickness / 1000
+    moduleWidth = debouncedWidth / 1000,
+    moduleHeight = debouncedHeight / 1000,
+    moduleDepth = debouncedDepth / 1000,
+    panelThickness = debouncedThickness / 1000
 
   return (
     <>

@@ -1,20 +1,18 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState } from "react"
+import { useDebounce } from "@reactuses/core"
 
-export const ConfiguratorContext = createContext({});
+export const ConfiguratorContext = createContext({})
 
 export const ConfiguratorProvider = ({ children }) => {
-  const [showDim, setShowDim] = useState(true);
+  const [showDim, setShowDim] = useState(true)
   const toggleDim = () => { setShowDim(show => !show) }
 
-  const [split, setSplit] = useState(3);
-  // const [moduleWidth, setModuleWidth] = useState(1.1);
-  const [width, setWidth] = useState(1100);
-  const [height, setHeight] = useState(680);
-  const [depth, setDepth] = useState(450);
-  const [thickness, setThickness] = useState(16);
-  const [moduleColor, setModuleColor] = useState("gray");
-
-  // const depth = 450, height = 680, thickness = 16;
+  const [split, setSplit] = useState(3)
+  const [width, setWidth] = useState(1100)
+  const [height, setHeight] = useState(680)
+  const [depth, setDepth] = useState(450)
+  const [thickness, setThickness] = useState(16)
+  const [moduleColor, setModuleColor] = useState("gray")
 
   return (
     <ConfiguratorContext.Provider
@@ -24,9 +22,13 @@ export const ConfiguratorProvider = ({ children }) => {
         split,
         setSplit,
         width,
+        debouncedWidth: useDebounce(width, 500),
         height,
+        debouncedHeight: useDebounce(height, 500),
         depth,
+        debouncedDepth: useDebounce(depth, 500),
         thickness,
+        debouncedThickness: useDebounce(thickness, 500),
         setWidth,
         setHeight,
         setDepth,

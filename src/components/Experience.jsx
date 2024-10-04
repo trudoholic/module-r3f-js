@@ -11,7 +11,9 @@ export const Experience = () => {
       />
 
       <Bounds
-        fit clip observe margin={1.2}
+        fit clip observe
+        // damping={0}
+        margin={1.2}
       >
         <ModuleV1 />
         {/*<Module />*/}
