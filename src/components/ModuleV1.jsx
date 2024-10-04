@@ -1,3 +1,5 @@
+import { useEffect } from "react"
+import { useBounds } from "@react-three/drei"
 import Carcass from "./Carcass.jsx"
 import CarcassDim from "./CarcassDim.jsx"
 import Dividers from "./Dividers.jsx"
@@ -14,6 +16,13 @@ export function ModuleV1() {
     moduleWidth = width / 1000,
     moduleHeight = height / 1000,
     moduleDepth = depth / 1000
+
+  const bounds = useBounds()
+  useEffect(() => {
+    bounds.refresh().clip().fit()
+  }, [width, height, depth])
+
+
 
   return (
     <group
